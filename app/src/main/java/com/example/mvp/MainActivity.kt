@@ -15,7 +15,13 @@ class MainActivity : AppCompatActivity(), MainView {
         setContentView(R.layout.activity_main)
 
         val listener = View.OnClickListener {
-            mPresenter.counterClick(it.id)
+            var index = 0
+            when (it.id) {
+                R.id.btnCounter1 -> index = 0
+                R.id.btnCounter2 -> index = 1
+                R.id.btnCounter3 -> index = 2
+            }
+            mPresenter.counterClick(index)
         }
 
         btnCounter1.setOnClickListener(listener)
